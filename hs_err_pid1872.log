@@ -1,0 +1,84 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32744 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./src/hotspot/share/memory/arena.cpp:81), pid=1872, tid=5856
+#
+# JRE version: OpenJDK Runtime Environment (11.0.8+10) (build 11.0.8+10-b944.6842174)
+# Java VM: OpenJDK 64-Bit Server VM (11.0.8+10-b944.6842174, mixed mode, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: org.jetbrains.kotlin.cli.jvm.K2JVMCompiler @D:\AndroidProjects\DiceRoller\app\build\20210804_14982810916481029675.compiler.options
+
+Host: Intel(R) Core(TM) i3-2370M CPU @ 2.40GHz, 4 cores, 3G,  Windows 10 , 64 bit Build 17763 (10.0.17763.2028)
+Time: Wed Aug  4 22:10:48 2021 RTZ 2 (ceia) elapsed time: 0 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001e17c107800):  JavaThread "C1 CompilerThread0" daemon [_thread_in_native, id=5856, stack(0x0000002001800000,0x0000002001900000)]
+
+
+Current CompileTask:
+C1:    133   39   !   3       java.util.concurrent.ConcurrentHashMap::putVal (432 bytes)
+
+Stack: [0x0000002001800000,0x0000002001900000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x5de50a]
+V  [jvm.dll+0x7122f5]
+V  [jvm.dll+0x71384d]
+V  [jvm.dll+0x713f03]
+V  [jvm.dll+0x23e728]
+V  [jvm.dll+0xb8beb]
+V  [jvm.dll+0xb8e9c]
+V  [jvm.dll+0x163ff5]
+V  [jvm.dll+0x162c27]
+V  [jvm.dll+0x162d8c]
+V  [jvm.dll+0x1656ea]
+V  [jvm.dll+0x11f2ec]
+V  [jvm.dll+0x11edf9]
+V  [jvm.dll+0x11ef63]
+V  [jvm.dll+0x11e277]
+V  [jvm.dll+0x11fe47]
+V  [jvm.dll+0x205047]
+V  [jvm.dll+0x203891]
+V  [jvm.dll+0x6dad3f]
+V  [jvm.dll+0x6d3895]
+V  [jvm.dll+0x5dd4a6]
+C  [ucrtbase.dll+0x2268a]
+C  [KERNEL32.DLL+0x17974]
+C  [ntdll.dll+0x5a2f1]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x000001e17c0feb70, length=8, elements={
+0x000001e162e9a000, 0x000001e17c07d000, 0x000001e17c09f000, 0x000001e17c0fa000,
+0x000001e17c0fc000, 0x000001e17c0fd000, 0x000001e17c107800, 0x000001e17c109800
+}
+
+Java Threads: ( => current thread )
+  0x000001e162e9a000 JavaThread "main" [_thread_in_native, id=4344, stack(0x0000002000c00000,0x0000002000d00000)]
+  0x000001e17c07d000 JavaThread "Reference Handler" daemon [_thread_blocked, id=4892, stack(0x0000002001300000,0x0000002001400000)]
+  0x000001e17c09f000 JavaThread "Finalizer" daemon [_thread_blocked, id=7024, stack(0x0000002001400000,0x0000002001500000)]
+  0x000001e17c0fa000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=5456, stack(0x0000002001500000,0x0000002001600000)]
+  0x000001e17c0fc000 JavaThread "Attach Listener" daemon [_thread_blocked, id=2136, stack(0x0000002001600000,0x0000002001700000)]
